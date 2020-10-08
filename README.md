@@ -6,58 +6,56 @@
   Desafio 2: Conceitos do NodeJS
 </h3>
 
-<p align="center">“Sua única limitação é você mesmo”!</blockquote>
+<p align="center">â€œSua Ãºnica limitaÃ§Ã£o Ã© vocÃª mesmoâ€!</blockquote>
 
 <p align="center">
   <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-   <a href="#memo-licença">Licença</a>
+   <a href="#memo-licenÃ§a">LicenÃ§a</a>
 </p>
 
 ## :rocket: Sobre o desafio
 
-Nesse desafio, você deve criar uma aplicação para treinar o que você aprendeu até agora no Node.js!
-Essa será uma aplicação para armazenar repositórios do seu portfólio, que irá permitir a criação, listagem, atualização e remoção dos repositórios, e além disso permitir que os repositórios possam receber "likes".
+Nesse desafio, vocÃª deve criar uma aplicaÃ§Ã£o para treinar o que vocÃª aprendeu atÃ© agora no Node.js!
+Essa serÃ¡ uma aplicaÃ§Ã£o para armazenar repositÃ³rios do seu portfÃ³lio, que irÃ¡ permitir a criaÃ§Ã£o, listagem, atualizaÃ§Ã£o e remoÃ§Ã£o dos repositÃ³rios, e alÃ©m disso permitir que os repositÃ³rios possam receber "likes".
 
 ### Rotas
 
-- **`POST /repositories`**: A rota deve receber `title`, `url` e `techs` dentro do corpo da requisição, sendo a URL o link para o github desse repositório. Ao cadastrar um novo projeto, ele deve ser armazenado dentro de um objeto no seguinte formato: `{ id: "uuid", title: 'Desafio Node.js', techs: ["Node.js", "..."], likes: 0 }`; Certifique-se que o ID seja um UUID, e de sempre iniciar os likes como 0.
+- **`POST /repositories`**: A rota deve receber `title`, `url` e `techs` dentro do corpo da requisiÃ§Ã£o, sendo a URL o link para o github desse repositÃ³rio. Ao cadastrar um novo projeto, ele deve ser armazenado dentro de um objeto no seguinte formato: `{ id: "uuid", title: 'Desafio Node.js', techs: ["Node.js", "..."], likes: 0 }`; Certifique-se que o ID seja um UUID, e de sempre iniciar os likes como 0.
 
-- **`GET /repositories`**: Rota que lista todos os repositórios;
+- **`GET /repositories`**: Rota que lista todos os repositÃ³rios;
 
-- **`PUT /repositories/:id`**: A rota deve alterar apenas o `título`, a `url` e as `techs` do repositório que possua o `id` igual ao `id` presente nos parâmetros da rota;
+- **`PUT /repositories/:id`**: A rota deve alterar apenas o `tÃ­tulo`, a `url` e as `techs` do repositÃ³rio que possua o `id` igual ao `id` presente nos parÃ¢metros da rota;
 
-- **`DELETE /repositories/:id`**: A rota deve deletar o repositório com o `id` presente nos parâmetros da rota;
+- **`DELETE /repositories/:id`**: A rota deve deletar o repositÃ³rio com o `id` presente nos parÃ¢metros da rota;
 
-- **`POST /repositories/:id/like`**: A rota deve aumentar o número de likes do repositório específico escolhido através do `id` presente nos parâmetros da rota, a cada chamada dessa rota, o número de likes deve ser aumentado em 1;
+- **`POST /repositories/:id/like`**: A rota deve aumentar o nÃºmero de likes do repositÃ³rio especÃ­fico escolhido atravÃ©s do `id` presente nos parÃ¢metros da rota, a cada chamada dessa rota, o nÃºmero de likes deve ser aumentado em 1;
 
-### Específicação dos testes
+### EspecÃ­ficaÃ§Ã£o dos testes
 
-Em cada teste, tem uma breve descrição no que sua aplicação deve cumprir para que o teste passe.
+Em cada teste, tem uma breve descriÃ§Ã£o no que sua aplicaÃ§Ã£o deve cumprir para que o teste passe.
 
 Para esse desafio temos os seguintes testes:
 
-- **`should be able to create a new repository`**: Para que esse teste passe, sua aplicação deve permitir que um repositório seja criado, e retorne um json com o projeto criado.
+- **`should be able to create a new repository`**: Para que esse teste passe, sua aplicaÃ§Ã£o deve permitir que um repositÃ³rio seja criado, e retorne um json com o projeto criado.
 
-- **`should be able to list the repositories`**: Para que esse teste passe, sua aplicação deve permitir que seja retornado um array com todos os repositórios que foram criados até o momento.
+- **`should be able to list the repositories`**: Para que esse teste passe, sua aplicaÃ§Ã£o deve permitir que seja retornado um array com todos os repositÃ³rios que foram criados atÃ© o momento.
 
-- **`should be able to update repository`**: Para que esse teste passe, sua aplicação deve permitir que sejam alterados apenas os campos `url`, `title` e `techs`.
+- **`should be able to update repository`**: Para que esse teste passe, sua aplicaÃ§Ã£o deve permitir que sejam alterados apenas os campos `url`, `title` e `techs`.
 
-- **`should not be able to update a repository that does not exist`**: Para que esse teste passe, você deve validar na sua rota de update se o id do repositório enviado pela url existe ou não. Caso não exista, retornar um erro com status `400`.
+- **`should not be able to update a repository that does not exist`**: Para que esse teste passe, vocÃª deve validar na sua rota de update se o id do repositÃ³rio enviado pela url existe ou nÃ£o. Caso nÃ£o exista, retornar um erro com status `400`.
 
-- **`should not be able to update repository likes manually`**: Para que esse teste passe, você não deve permitir que sua rota de update altere diretamente os likes desse repositório, mantendo o mesmo número de likes que o repositório já possuia antes da atualização. Isso porque o único lugar que deve atualizar essa informação é a rota de responsável por aumentar o número de likes.
+- **`should not be able to update repository likes manually`**: Para que esse teste passe, vocÃª nÃ£o deve permitir que sua rota de update altere diretamente os likes desse repositÃ³rio, mantendo o mesmo nÃºmero de likes que o repositÃ³rio jÃ¡ possuia antes da atualizaÃ§Ã£o. Isso porque o Ãºnico lugar que deve atualizar essa informaÃ§Ã£o Ã© a rota de responsÃ¡vel por aumentar o nÃºmero de likes.
 
-- **`should be able to delete the repository`**: Para que esse teste passe, você deve perimtir que a sua rota de delete excluia um projeto, e ao fazer a exclusão, ele retorne uma resposta vazia, com status `204`.
+- **`should be able to delete the repository`**: Para que esse teste passe, vocÃª deve perimtir que a sua rota de delete excluia um projeto, e ao fazer a exclusÃ£o, ele retorne uma resposta vazia, com status `204`.
 
-- **`should not be able to delete a repository that does not exist`**: Para que esse teste passe, você deve validar na sua rota de delete se o id do repositório enviado pela url existe ou não. Caso não exista, retornar um erro com status `400`.
+- **`should not be able to delete a repository that does not exist`**: Para que esse teste passe, vocÃª deve validar na sua rota de delete se o id do repositÃ³rio enviado pela url existe ou nÃ£o. Caso nÃ£o exista, retornar um erro com status `400`.
 
-- **`should be able to give a like to the repository`**: Para que esse teste passe, sua aplicação deve permitir que um repositório com o id informado possa receber likes. O valor de likes deve ser incrementado em 1 a cada requisição.
+- **`should be able to give a like to the repository`**: Para que esse teste passe, sua aplicaÃ§Ã£o deve permitir que um repositÃ³rio com o id informado possa receber likes. O valor de likes deve ser incrementado em 1 a cada requisiÃ§Ã£o.
 
-- **`should not be able to like a repository that does not exist`**: Para que esse teste passe, você deve validar na sua rota de like se o id do repositório enviado pela url existe ou não. Caso não exista, retornar um erro com status `400`.
+- **`should not be able to like a repository that does not exist`**: Para que esse teste passe, vocÃª deve validar na sua rota de like se o id do repositÃ³rio enviado pela url existe ou nÃ£o. Caso nÃ£o exista, retornar um erro com status `400`.
 
-## :memo: Licença
+## :memo: LicenÃ§a
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto estÃ¡ sob a licenÃ§a MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
-
-Feito com ?? by Jaime Barbosa :wave: [Linkedin](https://www.linkedin.com/in/jaimebs/)
